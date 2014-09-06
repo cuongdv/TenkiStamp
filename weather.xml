@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resp>
+    <update>201209031721</update>
+<weathernews>
+    <date>
+        <last>
+            <year>2012</year>
+            <month>9</month>
+            <date>3</date>
+            <hour>12</hour>
+            <minute>00</minute>
+        </last>
+        <week>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>3</date>
+                <day>1</day>
+                <holiday>0</holiday>
+            </day>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>4</date>
+                <day>2</day>
+                <holiday>0</holiday>
+            </day>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>5</date>
+                <day>3</day>
+                <holiday>0</holiday>
+            </day>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>6</date>
+                <day>4</day>
+                <holiday>0</holiday>
+            </day>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>7</date>
+                <day>5</day>
+                <holiday>0</holiday>
+            </day>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>8</date>
+                <day>6</day>
+                <holiday>0</holiday>
+            </day>
+            <day>
+                <year>2012</year>
+                <month>9</month>
+                <date>9</date>
+                <day>0</day>
+                <holiday>1</holiday>
+            </day>
+        </week>
+    </date>
+    <area code="47401" lname="稚内">
+        <week>
+            <day weather="111" tempmax="27" tempmin="21" pop="10">3</day>
+            <day weather="200" tempmax="24" tempmin="19" pop="20">4</day>
+            <day weather="200" tempmax="25" tempmin="19" pop="30">5</day>
+            <day weather="203" tempmax="24" tempmin="19" pop="60">6</day>
+            <day weather="101" tempmax="26" tempmin="18" pop="20">7</day>
+            <day weather="101" tempmax="25" tempmin="18" pop="20">8</day>
+            <day weather="201" tempmax="24" tempmin="17" pop="20">9</day>
+        </week>
+    </area>
+</weathernews>
+
+</resp>

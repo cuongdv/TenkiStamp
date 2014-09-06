@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TabBarView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="footer.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z2z-7X-Yfj" userLabel="TabBarBackground">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                </imageView>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2U-bf-zjC" userLabel="Tab2">
+                    <rect key="frame" x="106" y="0.0" width="108" height="49"/>
+                    <state key="normal" backgroundImage="tab2.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="RXe-q0-b8K"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vap-Tc-YXF" userLabel="Tab3">
+                    <rect key="frame" x="214" y="0.0" width="106" height="49"/>
+                    <state key="normal" backgroundImage="tab3.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="tVK-OZ-qHZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-1g-STj" userLabel="Tab1">
+                    <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
+                    <state key="normal" backgroundImage="tab1.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="poJ-yz-6NK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="tab1" destination="Lh1-1g-STj" id="l9w-4K-F7Z"/>
+                <outlet property="tab2" destination="q2U-bf-zjC" id="JzQ-yO-VSe"/>
+                <outlet property="tab3" destination="vap-Tc-YXF" id="TvI-9Y-Vao"/>
+            </connections>
+            <point key="canvasLocation" x="255" y="242.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="footer.png" width="364" height="55"/>
+        <image name="tab1.png" width="108" height="51"/>
+        <image name="tab2.png" width="110" height="51"/>
+        <image name="tab3.png" width="108" height="51"/>
+    </resources>
+</document>
