@@ -18,18 +18,16 @@
     WeekView* weekView;
     NSDictionary* cities;
     
-    NSString* element;
-    NSMutableArray* weatherData;
-    NSMutableArray* weatherDataUpper;
-    NSMutableArray* weatherDataLower;
+    //NSMutableArray* weatherData;
+    //NSMutableArray* weatherDataUpper;
+    //NSMutableArray* weatherDataLower;
 
 }
 
 @property (nonatomic, retain) NSDictionary* cities;
-@property (nonatomic, retain) NSString* element;
-@property (nonatomic, retain) NSMutableArray* weatherData;
-@property (nonatomic, retain) NSMutableArray* weatherDataUpper;
-@property (nonatomic, retain) NSMutableArray* weatherDataLower;
+//@property (nonatomic, retain) NSMutableArray* weatherData;
+//@property (nonatomic, retain) NSMutableArray* weatherDataUpper;
+//@property (nonatomic, retain) NSMutableArray* weatherDataLower;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *currentDateLabel;

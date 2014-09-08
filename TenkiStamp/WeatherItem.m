@@ -17,18 +17,8 @@
     // Drawing code
 }
 */
-@synthesize day, dateMonth, tempMax, tempMin, pop, weatherCode;
+@synthesize day, date, month, tempMax, tempMin, pop, weatherCode;
 
-- (instancetype)initWithDay:(NSString*)d dateMonth:(NSString*)dM tempMax:(NSInteger)max tempMin:(NSInteger)min pop:(NSInteger)p weatherCode:(NSInteger)code {
-    if (self = [super init]) {
-        day = d;
-        dateMonth = dM;
-        tempMax = max;
-        tempMin = min;
-        pop = p;
-        weatherCode = code;
-    }
-    return self;
-}
+
 
 @end

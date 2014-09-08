@@ -14,18 +14,20 @@
     NSInteger tempMax;
     NSInteger tempMin;
     NSInteger pop;
-    NSString* day;
-    NSString* dateMonth;
+    NSInteger day;
+    NSInteger date;
+    NSInteger month;
 }
 
-- (instancetype)initWithDay:(NSString*)d dateMonth:(NSString*)dM tempMax:(NSInteger)max tempMin:(NSInteger)min pop:(NSInteger)p weatherCode:(NSInteger)code ;
+
 
 @property (nonatomic) NSInteger weatherCode;
 @property (nonatomic) NSInteger tempMax;
 @property (nonatomic) NSInteger tempMin;
 @property (nonatomic) NSInteger pop;
-@property (nonatomic) NSString* day;
-@property (nonatomic) NSString* dateMonth;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger date;
+@property (nonatomic) NSInteger month;
 
 
 @end

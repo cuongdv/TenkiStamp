@@ -42,8 +42,11 @@
     
    
     
-    [day setText:weatherItem.day];
-    [dateMonth setText:[[NSString alloc] initWithFormat:@"%@", weatherItem.dateMonth]];
+    [day setText:[[NSString alloc] initWithFormat:@"%d", weatherItem.day]];
+    
+    NSString* dateMonthString = [[NSString alloc]initWithFormat:@"%d/%d", weatherItem.month, weatherItem.date];
+    [dateMonth setText:dateMonthString];
+    
     
     //NSLog(@"UpdateView");
 }
