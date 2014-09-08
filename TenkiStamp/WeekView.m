@@ -56,17 +56,29 @@
 }
 
 - (void)updateDateViews:(NSInteger)tag withData:(NSMutableArray*)data {
-        
     
     if (tag == 1) {
-    
-        for (int i=6;i<12; i++) {
-            if ([[dateViews objectAtIndex:i] isKindOfClass:[DateView class]]) {
-                DateView *dateView = [dateViews objectAtIndex:i];
-                dateView.weatherItem = [data objectAtIndex:i-5];
-                [dateView updateView];
+        
+        if ([data count] == 14) {
+            for (int i=6;i<12; i++) {
+                if ([[dateViews objectAtIndex:i] isKindOfClass:[DateView class]]) {
+                    DateView *dateView = [dateViews objectAtIndex:i];
+                    dateView.weatherItem = [data objectAtIndex:i+2];
+                    [dateView updateView];
+                }
+            }
+        } else {
+            for (int i=6;i<12; i++) {
+                if ([[dateViews objectAtIndex:i] isKindOfClass:[DateView class]]) {
+                    DateView *dateView = [dateViews objectAtIndex:i];
+                    dateView.weatherItem = [data objectAtIndex:i-5];
+                    [dateView updateView];
+                }
             }
         }
+       
+        
+        
         
     } else {
     

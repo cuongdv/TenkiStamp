@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lowerTempMax;
 @property (weak, nonatomic) IBOutlet UILabel *lowerTempMin;
 @property (weak, nonatomic) IBOutlet UILabel *lowerPop;
+@property (weak, nonatomic) IBOutlet UIImageView *upperStampView;
+@property (weak, nonatomic) IBOutlet UIImageView *lowerStampView;
 
 @property (nonatomic, retain) NSObject<ActionSelectCity> *delegate;
 - (IBAction)showSelectCity:(id)sender;

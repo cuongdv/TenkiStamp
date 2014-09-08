@@ -29,26 +29,34 @@
     
     
     
-    NSString* imageName = [[NSString alloc]initWithFormat:@"%d.png", weatherItem.weatherCode];
+    NSString* imageName = [[NSString alloc]initWithFormat:@"%ld.png", (long)weatherItem.weatherCode];
     [icon setContentMode:UIViewContentModeScaleAspectFit];
     [icon setImage:[UIImage imageNamed:imageName]];
     
-    [tempMax setText:[[NSString alloc] initWithFormat:@"%d°C", weatherItem.tempMax]];
+    [tempMax setText:[[NSString alloc] initWithFormat:@"%ld°C", (long)weatherItem.tempMax]];
     
     
     
-    [tempMin setText:[[NSString alloc] initWithFormat:@"%d°C", weatherItem.tempMin]];
-    [pop setText:[[NSString alloc] initWithFormat:@"%d%%", weatherItem.pop]];
+    [tempMin setText:[[NSString alloc] initWithFormat:@"%ld°C", (long)weatherItem.tempMin]];
+    [pop setText:[[NSString alloc] initWithFormat:@"%ld%%", (long)weatherItem.pop]];
     
    
     
-    [day setText:[[NSString alloc] initWithFormat:@"%d", weatherItem.day]];
+    [day setText:[self getDateFromNumber:weatherItem.day]];
     
-    NSString* dateMonthString = [[NSString alloc]initWithFormat:@"%d/%d", weatherItem.month, weatherItem.date];
+    NSString* dateMonthString = [[NSString alloc]initWithFormat:@"%ld/%ld", (long)weatherItem.month, (long)weatherItem.date];
     [dateMonth setText:dateMonthString];
     
     
     //NSLog(@"UpdateView");
+}
+
+- (NSString*)getDateFromNumber:(NSInteger)num {
+    
+    
+    NSArray* arrayDate = [[NSArray alloc]initWithObjects:@"月", @"火", @"水", @"木", @"金", @"土", @"日",  nil];
+    
+    return [arrayDate objectAtIndex:num];
 }
 
 @end

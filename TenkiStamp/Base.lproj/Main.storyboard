@@ -148,6 +148,12 @@
                                     <action selector="update:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mvm-hh-6ue"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3F-Jq-jlq">
+                                <rect key="frame" x="0.0" y="393" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="v2C-y4-u14" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="4bo-F8-qlK"/>
@@ -189,6 +195,8 @@
                     <connections>
                         <outlet property="currentDateLabel" destination="nbu-nE-BLC" id="EZC-E2-l64"/>
                         <outlet property="mainView" destination="exl-wV-NgT" id="Oa6-yk-ntu"/>
+                        <outlet property="refreshButton" destination="9nQ-8U-uWL" id="SbO-HE-XYi"/>
+                        <outlet property="testLabel" destination="h3F-Jq-jlq" id="fNu-mu-odp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -21,7 +21,7 @@
                         <constraint firstAttribute="height" constant="50" id="dmC-ny-3Fv"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stamp_view_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-VW-wxO" userLabel="upperStampView.png">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stamp_view_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-VW-wxO" userLabel="upperStampBackground">
                     <rect key="frame" x="8" y="40" width="100" height="90"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1s-Du-l3V" userLabel="upperSelectCity">
@@ -81,8 +81,11 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="201.png" translatesAutoresizingMaskIntoConstraints="NO" id="jMB-RH-vHr" userLabel="lowerIconWeather.png">
                     <rect key="frame" x="175" y="180" width="80" height="50"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stamp_view_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-1G-IYV" userLabel="lowerStampView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stamp_view_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-1G-IYV" userLabel="lowerStampBackground">
                     <rect key="frame" x="8" y="190" width="100" height="90"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-Ta-zlk" userLabel="lowerStampView">
+                    <rect key="frame" x="28" y="205" width="60" height="60"/>
                 </imageView>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-jL-T9S" userLabel="lowerSelectCity">
                     <rect key="frame" x="138" y="160" width="24" height="24"/>
@@ -135,6 +138,9 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNP-YG-zjY" userLabel="upperStampView">
+                    <rect key="frame" x="28" y="55" width="60" height="60"/>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="kdz-2a-9Pd" secondAttribute="trailing" constant="65" id="AVp-Qg-yT7"/>
@@ -146,11 +152,13 @@
                 <outlet property="lowerCityName" destination="2K0-IP-9Pu" id="j45-Aj-xL6"/>
                 <outlet property="lowerIcon" destination="jMB-RH-vHr" id="055-L6-ygk"/>
                 <outlet property="lowerPop" destination="buk-Hm-Jgv" id="3Et-7a-lJE"/>
+                <outlet property="lowerStampView" destination="c2Q-Ta-zlk" id="JPt-zu-OFX"/>
                 <outlet property="lowerTempMax" destination="Xqs-Ov-wmm" id="lYF-Ms-2OY"/>
                 <outlet property="lowerTempMin" destination="KzU-Wb-mEJ" id="MM1-Ud-sHO"/>
                 <outlet property="upperCityName" destination="oGg-1I-vNJ" id="IDu-IU-NOg"/>
                 <outlet property="upperIcon" destination="kdz-2a-9Pd" id="Ad3-O2-4b9"/>
                 <outlet property="upperPop" destination="I04-il-QGU" id="Y9u-N0-Nn9"/>
+                <outlet property="upperStampView" destination="iNP-YG-zjY" id="Khr-lu-jjE"/>
                 <outlet property="upperTempMax" destination="b76-qO-YFd" id="0jm-HN-6cf"/>
                 <outlet property="upperTempMin" destination="8NT-yN-Sf9" id="bjM-fm-p2T"/>
             </connections>

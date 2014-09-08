@@ -8,12 +8,15 @@
 
 #import "WeatherViewController.h"
 
+#define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
+
 @interface WeatherViewController () {
     
     NSString* mElement;
     NSMutableArray* weatherWeek;
     NSString* value;
     WeatherItem* weatherItem;
+    NSInteger indexUpdate;
 }
 
 @end
@@ -57,29 +60,19 @@
         //NSLog(@"There is internet connection");
         // Checking database
         
-        //weatherData = [[NSMutableArray alloc]init];
-        // Request for upper
-        NSURL* urlUpper = [[NSURL alloc]initWithString:@"http://www.custamo.com/smartp/weather/?code=47945"];
-        NSXMLParser *parserUpper = [[NSXMLParser alloc]initWithContentsOfURL:urlUpper];
-        
-        [parserUpper setDelegate:self];
-        [parserUpper parse];
-        
-        // Request for lower
-        NSURL* urllower = [[NSURL alloc]initWithString:@"http://www.custamo.com/smartp/weather/?code=47662"];
-        NSXMLParser *parserlower = [[NSXMLParser alloc]initWithContentsOfURL:urllower];
-        
-        [parserlower setDelegate:self];
-        [parserlower parse];
+        //Osaka weather code
+        //NSString* upperCode = [[NSString alloc]initWithFormat:@"%d", 47945];
+        //Tokyo weather code
+        //NSString* lowerCode = [[NSString alloc]initWithFormat:@"%d", 47662];
+        // Get data for all
+        //[self getDataForUpper:upperCode andLower:lowerCode];
     }
-
 
     todayView = [[[NSBundle mainBundle] loadNibNamed:@"TodayView" owner:self options:nil] lastObject];
     todayView.delegate = self;
     //WeatherItem* today = [weatherData objectAtIndex:0];
     //[todayView.upperTempMax setText:[NSString stringWithFormat:@"%d°C /", today.tempMax]];
     [mainView addSubview:todayView];
-    
 
     weekView = [[[NSBundle mainBundle] loadNibNamed:@"WeekView" owner:self options:nil] lastObject];
     weekView.frame = CGRectMake(320, 0, 320, 300);
@@ -90,14 +83,20 @@
     [mainView setContentSize:CGSizeMake(640, 300)];
     [mainView setPagingEnabled:YES];
     
-    [self updateWeatherView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self update:self.refreshButton];
 }
 
 - (void)parseValueWithCode:(NSInteger)code {
     
+    weatherWeek = [[NSMutableArray alloc]init];
+    
     NSMutableString* urlString = [[NSMutableString alloc]init];
     [urlString appendString:@"http://www.custamo.com/smartp/weather/?code="];
-    [urlString appendFormat:@"%d", code];
+    [urlString appendFormat:@"%ld", (long)code];
     
     NSURL* url = [[NSURL alloc]initWithString:urlString];
     NSXMLParser *parser = [[NSXMLParser alloc]initWithContentsOfURL:url];
@@ -124,33 +123,35 @@
 
 - (void)updateUpper {
     WeatherItem* today = [weatherWeek objectAtIndex:0];
-//    if (weatherDataUpper) {
-//        [weekView updateDateViews:0 withData:weatherDataUpper];
-//        today = [weatherDataUpper objectAtIndex:0];
-//    }
-    [todayView.upperTempMax setText:[NSString stringWithFormat:@"%d°C /", today.tempMax]];
-    [todayView.upperTempMin setText:[NSString stringWithFormat:@"%d°C /", today.tempMin]];
-    [todayView.upperPop setText:[NSString stringWithFormat:@"%d%% ", today.pop]];
-    NSString* imageName = [[NSString alloc]initWithFormat:@"%d.png", today.weatherCode];
-    //NSLog(@"%@", imageName);
+    [weekView updateDateViews:0 withData:weatherWeek];
+
+    [todayView.upperTempMax setText:[NSString stringWithFormat:@"%ld°C /", (long)today.tempMax]];
+    [todayView.upperTempMin setText:[NSString stringWithFormat:@"%ld°C /", (long)today.tempMin]];
+    [todayView.upperPop setText:[NSString stringWithFormat:@"%ld%% ", (long)today.pop]];
+    
+    NSString* imageName = [[NSString alloc]initWithFormat:@"%ld.png", (long)today.weatherCode];
     todayView.upperIcon.contentMode = UIViewContentModeScaleAspectFit;
     [todayView.upperIcon setImage:[UIImage imageNamed:imageName]];
     
+    todayView.upperStampView.contentMode = UIViewContentModeScaleAspectFit;
+    [todayView.upperStampView setImage:[UIImage imageNamed:[self randomStampViewFromCode:today.weatherCode]]];
 }
 
 - (void)updateLower {
-    WeatherItem* today = [weatherWeek objectAtIndex:7];
-//    if (weatherDataUpper) {
-//        [weekView updateDateViews:1 withData:weatherDataUpper];
-//        today = [weatherDataUpper objectAtIndex:0];
-//    }
-    [todayView.lowerTempMax setText:[NSString stringWithFormat:@"%d°C /", today.tempMax]];
-    [todayView.lowerTempMin setText:[NSString stringWithFormat:@"%d°C /", today.tempMin]];
-    [todayView.lowerPop setText:[NSString stringWithFormat:@"%d%% ", today.pop]];
-    NSString* imageName = [[NSString alloc]initWithFormat:@"%d.png", today.weatherCode];
+    WeatherItem* today = [weatherWeek objectAtIndex:0];
+    if ([weatherWeek count] == 14) {
+        today = [weatherWeek objectAtIndex:7];
+    }
+    [weekView updateDateViews:1 withData:weatherWeek];
+    [todayView.lowerTempMax setText:[NSString stringWithFormat:@"%ld°C /", (long)today.tempMax]];
+    [todayView.lowerTempMin setText:[NSString stringWithFormat:@"%ld°C /", (long)today.tempMin]];
+    [todayView.lowerPop setText:[NSString stringWithFormat:@"%ld%% ", (long)today.pop]];
+    NSString* imageName = [[NSString alloc]initWithFormat:@"%ld.png", (long)today.weatherCode];
     todayView.lowerIcon.contentMode = UIViewContentModeScaleAspectFit;
     [todayView.lowerIcon setImage:[UIImage imageNamed:imageName]];
     
+    todayView.lowerStampView.contentMode = UIViewContentModeScaleAspectFit;
+    [todayView.lowerStampView setImage:[UIImage imageNamed:[self randomStampViewFromCode:today.weatherCode]]];
 }
 
 #pragma mark Parse XML Delegate
@@ -214,27 +215,22 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     
-    if ([mElement isEqualToString:@"month"]) {
-        value = string;
-    }
-    
-    if ([mElement isEqualToString:@"date"]) {
-        value = string;
-    }
-    
-    if ([mElement isEqualToString:@"day"]) {
+    if ([mElement isEqualToString:@"month"]
+        || [mElement isEqualToString:@"date"]
+        || [mElement isEqualToString:@"day"]) {
         value = string;
     }
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
  
-    NSLog(@"%lu",(unsigned long)[weatherWeek count]);
+    //NSLog(@"%lu",(unsigned long)[weatherWeek count]);
+    if ([weatherWeek count] == 14) {
+        [self updateWeatherView];
+    }
 }
 
 - (void)actionSelectCity:sender {
-    
-    //weatherDataUpper = [[NSMutableArray alloc]init];
     
     if (![self checkingInternetConnection]) {
         UIAlertView* alertView =[[UIAlertView alloc] initWithTitle:@"" message:@"No Internet Connection" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:nil, nil];
@@ -250,17 +246,18 @@
     }
     
     NSArray *cityNames = [cities allValues];
-    //NSArray *cityKeys = [cities allKeys];
     
     ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
         if ([sender tag] == 0 && ![selectedValue isEqualToString:currentCityName]){
             NSLog(@"Update Upper");
+            indexUpdate = 0;
             [todayView.upperCityName setText:selectedValue];
             [weekView.upperCityNameLabel setText:selectedValue];
             [self parseValueWithCode:[[[cities allKeysForObject:selectedValue] objectAtIndex:0] integerValue]];
             [self updateUpper];
         } else if ([sender tag] == 1 && ![selectedValue isEqualToString:currentCityName]) {
             NSLog(@"Update Lower");
+            indexUpdate = 1;
             [todayView.lowerCityName setText:selectedValue];
             [weekView.lowerCityNameLabel setText:selectedValue];
             [self parseValueWithCode:[[[cities allKeysForObject:selectedValue] objectAtIndex:0] integerValue]];
@@ -288,21 +285,62 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)getDataForUpper:(NSString*)upperCode andLower:(NSString*)lowerCode {
+    // Request for Upper
+    NSMutableString* urlString = [[NSMutableString alloc]initWithString:@"http://www.custamo.com/smartp/weather/?code="];
+    [urlString appendString:upperCode];
+    
+    NSURL* urlUpper = [[NSURL alloc]initWithString:urlString];
+    NSXMLParser *parserUpper = [[NSXMLParser alloc]initWithContentsOfURL:urlUpper];
+    
+    [parserUpper setDelegate:self];
+    [parserUpper parse];
+    
+    //NSLog(@"%@", urlString);
+    
+    // Request for lower
+    urlString = [[NSMutableString alloc]initWithString:@"http://www.custamo.com/smartp/weather/?code="];
+    [urlString appendString:lowerCode];
+    NSURL* urllower = [[NSURL alloc]initWithString:urlString];
+    NSXMLParser *parserlower = [[NSXMLParser alloc]initWithContentsOfURL:urllower];
+    //NSLog(@"%@", urlString);
+
+    [parserlower setDelegate:self];
+    [parserlower parse];
 }
 
 - (IBAction)update:(id)sender {
     if (![self checkingInternetConnection]) {
         UIAlertView* alertView =[[UIAlertView alloc] initWithTitle:@"" message:@"No Internet Connection" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:nil, nil];
         [alertView show];
-        //return;
+        return;
     }
     
-    //[weatherData removeAllObjects];
+    NSString* upperCode =  [[cities allKeysForObject:todayView.upperCityName.text] objectAtIndex:0] ;
+    NSString* lowerCode =  [[cities allKeysForObject:todayView.lowerCityName.text] objectAtIndex:0];
+
+    weatherWeek = [[NSMutableArray alloc]init];
+    [self getDataForUpper:upperCode andLower:lowerCode];
+}
+
+- (NSString*)randomStampViewFromCode:(NSInteger)code  {
+    NSMutableString* imageNamed = [[NSMutableString alloc]init];
+    if (code < 200) {
+        [imageNamed appendString:@"sunny_"];
+    } else if (code >= 200 || code < 300) {
+        [imageNamed appendString:@"cloudy_"];
+    } else if (code >= 300) {
+        [imageNamed appendString:@"rainy_"];
+    }
     
-    NSInteger upperKey =  [[[cities allKeysForObject:todayView.upperCityName.text] objectAtIndex:0] integerValue];
-    [self parseValueWithCode:upperKey];
-    NSInteger lowerKey =  [[[cities allKeysForObject:todayView.lowerCityName.text] objectAtIndex:0] integerValue];
-    [self parseValueWithCode:lowerKey];
+    int num = RAND_FROM_TO(0, 99);
+    
+    [imageNamed appendFormat:@"%d", num];
+    
+    NSLog(@"%@", imageNamed);
+    
+    return imageNamed;
 }
 @end

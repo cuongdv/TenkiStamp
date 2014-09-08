@@ -29,9 +29,11 @@
 //@property (nonatomic, retain) NSMutableArray* weatherDataUpper;
 //@property (nonatomic, retain) NSMutableArray* weatherDataLower;
 
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *currentDateLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (nonatomic, retain) IBOutlet TodayView *todayView;
 @property (nonatomic, retain) IBOutlet WeekView *weekView;
 
