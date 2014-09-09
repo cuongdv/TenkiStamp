@@ -153,7 +153,7 @@
     
     [todayView.upperStampView setImage:image];
     
-    [self insertDataToDatabase];
+    //[self insertDataToDatabase];
 }
 
 - (void)updateLower {
@@ -182,7 +182,7 @@
     }
     
     [todayView.lowerStampView setImage:image];
-    [self insertDataToDatabase];
+    //[self insertDataToDatabase];
 }
 
 - (void)insertDataToDatabase {
