@@ -323,6 +323,7 @@
 		6E9A1D7F19BDA4EB00BE1B91 /* sunny_98.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A1C5219BDA4EA00BE1B91 /* sunny_98.png */; };
 		6E9A1D8019BDA4EB00BE1B91 /* sunny_99.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A1C5319BDA4EA00BE1B91 /* sunny_99.png */; };
 		6E9A1D8119BDA4EB00BE1B91 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A1C5419BDA4EA00BE1B91 /* Thumbs.db */; };
+		6E9A1D8619BDB51200BE1B91 /* StampDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A1D8519BDB51200BE1B91 /* StampDatabase.m */; };
 		6EB96AF219B761B600542C64 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB96AF119B761B600542C64 /* MainViewController.m */; };
 		6EB96AF619B77ABB00542C64 /* WeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB96AF519B77ABB00542C64 /* WeekView.m */; };
 		6EB96AF819B77ACC00542C64 /* WeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB96AF719B77ACC00542C64 /* WeekView.xib */; };
@@ -412,6 +413,9 @@
 		6ED8645F19B859A700AEBC21 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8645E19B859A700AEBC21 /* ActionSheetStringPicker.m */; };
 		6ED8646219B859CC00AEBC21 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8646119B859CC00AEBC21 /* AbstractActionSheetPicker.m */; };
 		6ED8646519B85AB700AEBC21 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8646419B85AB700AEBC21 /* SWActionSheet.m */; };
+		6EF68EF719BEAAEB00D9A4C0 /* tenkistamp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6EF68EF619BEAAB300D9A4C0 /* tenkistamp.sqlite */; };
+		6EF6F26D19BDB98F00476254 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF6F26C19BDB98F00476254 /* libsqlite3.dylib */; };
+		6EF6F27019BDB9BB00476254 /* StampInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F26F19BDB9BB00476254 /* StampInfo.m */; };
 		6EFD3FD319B6B73E002A3754 /* top_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFD3FD219B6B73E002A3754 /* top_bg.png */; };
 		6EFD3FD719B6D2C1002A3754 /* TodayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD3FD619B6D2C1002A3754 /* TodayView.m */; };
 		6EFD3FD919B6D2DE002A3754 /* TodayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EFD3FD819B6D2DE002A3754 /* TodayView.xib */; };
@@ -752,6 +756,8 @@
 		6E9A1C5219BDA4EA00BE1B91 /* sunny_98.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny_98.png; sourceTree = "<group>"; };
 		6E9A1C5319BDA4EA00BE1B91 /* sunny_99.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny_99.png; sourceTree = "<group>"; };
 		6E9A1C5419BDA4EA00BE1B91 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
+		6E9A1D8419BDB51200BE1B91 /* StampDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StampDatabase.h; sourceTree = "<group>"; };
+		6E9A1D8519BDB51200BE1B91 /* StampDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StampDatabase.m; sourceTree = "<group>"; };
 		6EB96AF019B761B600542C64 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6EB96AF119B761B600542C64 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6EB96AF419B77ABB00542C64 /* WeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekView.h; sourceTree = "<group>"; };
@@ -853,6 +859,10 @@
 		6ED8646319B85AB700AEBC21 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		6ED8646419B85AB700AEBC21 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		6ED8646619B86A3600AEBC21 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		6EF68EF619BEAAB300D9A4C0 /* tenkistamp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tenkistamp.sqlite; sourceTree = "<group>"; };
+		6EF6F26C19BDB98F00476254 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6EF6F26E19BDB9BB00476254 /* StampInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StampInfo.h; sourceTree = "<group>"; };
+		6EF6F26F19BDB9BB00476254 /* StampInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StampInfo.m; sourceTree = "<group>"; };
 		6EFD3FD219B6B73E002A3754 /* top_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_bg.png; sourceTree = "<group>"; };
 		6EFD3FD519B6D2C1002A3754 /* TodayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayView.h; sourceTree = "<group>"; };
 		6EFD3FD619B6D2C1002A3754 /* TodayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayView.m; sourceTree = "<group>"; };
@@ -866,6 +876,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF6F26D19BDB98F00476254 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,6 +893,7 @@
 		6E85118219B31A1500D16852 = {
 			isa = PBXGroup;
 			children = (
+				6EF6F26C19BDB98F00476254 /* libsqlite3.dylib */,
 				6EB96AF919B77FD000542C64 /* Resource */,
 				6E85118D19B31A1600D16852 /* TenkiStamp */,
 				6E8511A419B31A1600D16852 /* TenkiStampTests */,
@@ -901,6 +913,7 @@
 		6E85118D19B31A1600D16852 /* TenkiStamp */ = {
 			isa = PBXGroup;
 			children = (
+				6E9A1D8319BDB48100BE1B91 /* StampDatabase */,
 				6EBF222A19BA1229001B0C86 /* StampGroupView */,
 				6EBF222919BA11F7001B0C86 /* MainClass */,
 				6ED8645C19B8598C00AEBC21 /* ActionSheetPicker */,
@@ -1306,6 +1319,17 @@
 			path = sunny;
 			sourceTree = "<group>";
 		};
+		6E9A1D8319BDB48100BE1B91 /* StampDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				6E9A1D8419BDB51200BE1B91 /* StampDatabase.h */,
+				6E9A1D8519BDB51200BE1B91 /* StampDatabase.m */,
+				6EF6F26E19BDB9BB00476254 /* StampInfo.h */,
+				6EF6F26F19BDB9BB00476254 /* StampInfo.m */,
+			);
+			name = StampDatabase;
+			sourceTree = "<group>";
+		};
 		6EB96AF319B77A8D00542C64 /* WeekView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1325,6 +1349,7 @@
 				6E85119819B31A1600D16852 /* Main.storyboard */,
 				6EBF222719BA0448001B0C86 /* weather.xml */,
 				6E343D9019B86B1900D101AF /* DataCityName.plist */,
+				6EF68EF619BEAAB300D9A4C0 /* tenkistamp.sqlite */,
 				6E8511B119B31A2F00D16852 /* Images */,
 			);
 			name = Resource;
@@ -1611,6 +1636,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF68EF719BEAAEB00D9A4C0 /* tenkistamp.sqlite in Resources */,
 				6E9A1D5D19BDA4EB00BE1B91 /* sunny_67.png in Resources */,
 				6E9A1D0C19BDA4EB00BE1B91 /* rainy_84.png in Resources */,
 				6ED1692E19BAAF2C00982707 /* 217.png in Resources */,
@@ -2026,10 +2052,12 @@
 				6ED55DC819B95AAD00AA0148 /* WeatherItem.m in Sources */,
 				6ED8646219B859CC00AEBC21 /* AbstractActionSheetPicker.m in Sources */,
 				6ED8646519B85AB700AEBC21 /* SWActionSheet.m in Sources */,
+				6E9A1D8619BDB51200BE1B91 /* StampDatabase.m in Sources */,
 				6EB96AF219B761B600542C64 /* MainViewController.m in Sources */,
 				6E85119719B31A1600D16852 /* WeatherViewController.m in Sources */,
 				6E85119419B31A1600D16852 /* AppDelegate.m in Sources */,
 				6EFD3FD719B6D2C1002A3754 /* TodayView.m in Sources */,
+				6EF6F27019BDB9BB00476254 /* StampInfo.m in Sources */,
 				6E85119119B31A1600D16852 /* main.m in Sources */,
 				6ED8645F19B859A700AEBC21 /* ActionSheetStringPicker.m in Sources */,
 				6EBF222E19BA127C001B0C86 /* StampGroupViewCell.m in Sources */,

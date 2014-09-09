@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "StampGroupViewCell.h"
+#import "StampDatabase.h"
 
 @interface StampCollectionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+
 @property (weak, nonatomic) IBOutlet UITableView *stampCollectionView;
+
+
 
 @end

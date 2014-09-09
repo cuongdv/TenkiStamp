@@ -16,10 +16,18 @@
 
 @implementation AppDelegate
             
+@synthesize stampDatabase, stampCollection;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    stampDatabase = [StampDatabase database];
+    stampCollection = [stampDatabase stampCollection];
+    
+    NSLog(@"Stamp Collection Count = %lu", (unsigned long)stampCollection.count);
+    
+    
     
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [gregorian components:(NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit) fromDate:[NSDate date]];

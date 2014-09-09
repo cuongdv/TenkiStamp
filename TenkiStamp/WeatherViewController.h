@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #import "Reachability.h"
 #import "TodayView.h"
 #import "WeekView.h"
@@ -21,7 +22,6 @@
     //NSMutableArray* weatherData;
     //NSMutableArray* weatherDataUpper;
     //NSMutableArray* weatherDataLower;
-
 }
 
 @property (nonatomic, retain) NSDictionary* cities;

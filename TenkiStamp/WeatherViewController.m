@@ -17,6 +17,9 @@
     NSString* value;
     WeatherItem* weatherItem;
     NSInteger indexUpdate;
+    NSInteger stampTypeSunny, stampTypeRainy, stampTypeCloudy;
+    NSMutableString* imageNamedStamp;
+    NSMutableArray* stampCollection;
 }
 
 @end
@@ -70,8 +73,6 @@
 
     todayView = [[[NSBundle mainBundle] loadNibNamed:@"TodayView" owner:self options:nil] lastObject];
     todayView.delegate = self;
-    //WeatherItem* today = [weatherData objectAtIndex:0];
-    //[todayView.upperTempMax setText:[NSString stringWithFormat:@"%d°C /", today.tempMax]];
     [mainView addSubview:todayView];
 
     weekView = [[[NSBundle mainBundle] loadNibNamed:@"WeekView" owner:self options:nil] lastObject];
@@ -83,11 +84,16 @@
     [mainView setContentSize:CGSizeMake(640, 300)];
     [mainView setPagingEnabled:YES];
     
+    [self update:self.refreshButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    [self update:self.refreshButton];
+    
+    //stampCollection = delegate.stampCollection;
+    
+    //delegate.stampDatabase insert:<#(StampInfo *)#>
+    
 }
 
 - (void)parseValueWithCode:(NSInteger)code {
@@ -134,7 +140,20 @@
     [todayView.upperIcon setImage:[UIImage imageNamed:imageName]];
     
     todayView.upperStampView.contentMode = UIViewContentModeScaleAspectFit;
-    [todayView.upperStampView setImage:[UIImage imageNamed:[self randomStampViewFromCode:today.weatherCode]]];
+    
+    NSMutableString* imageNS = [self randomStampViewFromCode:today.weatherCode];
+    UIImage* image = [UIImage imageNamed:imageNS];
+    CGImageRef cgref = [image CGImage];
+    CIImage *cim = [image CIImage];
+    if (cim == nil && cgref == NULL)
+    {
+        [imageNS appendString:@".gif"];
+        image = [UIImage imageNamed:imageNS];
+    }
+    
+    [todayView.upperStampView setImage:image];
+    
+    [self insertDataToDatabase];
 }
 
 - (void)updateLower {
@@ -151,7 +170,49 @@
     [todayView.lowerIcon setImage:[UIImage imageNamed:imageName]];
     
     todayView.lowerStampView.contentMode = UIViewContentModeScaleAspectFit;
-    [todayView.lowerStampView setImage:[UIImage imageNamed:[self randomStampViewFromCode:today.weatherCode]]];
+        
+     NSMutableString* imageNS = [self randomStampViewFromCode:today.weatherCode];
+    UIImage* image = [UIImage imageNamed:imageNS];
+    CGImageRef cgref = [image CGImage];
+    CIImage *cim = [image CIImage];
+    if (cim == nil && cgref == NULL)
+    {
+        [imageNS appendString:@".gif"];
+        image = [UIImage imageNamed:imageNS];
+    }
+    
+    [todayView.lowerStampView setImage:image];
+    [self insertDataToDatabase];
+}
+
+- (void)insertDataToDatabase {
+    
+    AppDelegate* delegate = [[UIApplication sharedApplication]delegate];
+    StampDatabase* database = delegate.stampDatabase;
+    
+    NSInteger position = 0;
+    
+    if ([database stampCollection].count != 0) {
+        while ([self randomRuningWithInt:position]) {
+            position = arc4random()%301;
+        }
+    }
+    StampInfo* stampInfo = [[StampInfo alloc]initWithName:imageNamedStamp position:position watched:0];
+    
+    [database insert:stampInfo];
+    
+}
+
+- (BOOL)randomRuningWithInt:(NSInteger)num {
+    
+    AppDelegate* delegate = [[UIApplication sharedApplication]delegate];
+    stampCollection = [delegate stampCollection];
+    for (StampInfo* stampInfo in stampCollection) {
+        if (stampInfo.position == num) {
+            return NO;
+        };
+    }
+    return YES;
 }
 
 #pragma mark Parse XML Delegate
@@ -246,6 +307,9 @@
     }
     
     NSArray *cityNames = [cities allValues];
+    NSMutableArray* filterCityName = [[NSMutableArray alloc]initWithArray:cityNames];
+    [filterCityName removeObject:todayView.upperCityName.text];
+    [filterCityName removeObject:todayView.lowerCityName.text];
     
     ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
         if ([sender tag] == 0 && ![selectedValue isEqualToString:currentCityName]){
@@ -270,8 +334,8 @@
     };
     
    [ActionSheetStringPicker showPickerWithTitle:@"地域設定"
-                                            rows:cityNames
-                               initialSelection:[cityNames indexOfObject:currentCityName]                                      doneBlock:done
+                                            rows:filterCityName
+                               initialSelection:0                                      doneBlock:done
                                      cancelBlock:cancel
                                           origin:sender];
 }
@@ -325,8 +389,10 @@
     [self getDataForUpper:upperCode andLower:lowerCode];
 }
 
-- (NSString*)randomStampViewFromCode:(NSInteger)code  {
+- (NSMutableString*)randomStampViewFromCode:(NSInteger)code  {
     NSMutableString* imageNamed = [[NSMutableString alloc]init];
+    
+    
     if (code < 200) {
         [imageNamed appendString:@"sunny_"];
     } else if (code >= 200 || code < 300) {
@@ -338,7 +404,7 @@
     int num = RAND_FROM_TO(0, 99);
     
     [imageNamed appendFormat:@"%d", num];
-    
+    imageNamedStamp = imageNamed;
     NSLog(@"%@", imageNamed);
     
     return imageNamed;
