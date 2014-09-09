@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29D55F4219BEDD7000C1FD0A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D55F4119BEDD7000C1FD0A /* Storyboard.storyboard */; };
 		6E343D9119B86B1900D101AF /* DataCityName.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E343D9019B86B1900D101AF /* DataCityName.plist */; };
 		6E3C65A919B8C0FF0020C177 /* setting_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E3C65A819B8C0FF0020C177 /* setting_bg.png */; };
 		6E3C65AB19B8C1750020C177 /* setting_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E3C65AA19B8C1750020C177 /* setting_1.png */; };
@@ -19,7 +20,6 @@
 		6E85119119B31A1600D16852 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E85119019B31A1600D16852 /* main.m */; };
 		6E85119419B31A1600D16852 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E85119319B31A1600D16852 /* AppDelegate.m */; };
 		6E85119719B31A1600D16852 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E85119619B31A1600D16852 /* WeatherViewController.m */; };
-		6E85119A19B31A1600D16852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E85119819B31A1600D16852 /* Main.storyboard */; };
 		6E85119C19B31A1600D16852 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E85119B19B31A1600D16852 /* Images.xcassets */; };
 		6E8511A819B31A1600D16852 /* TenkiStampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8511A719B31A1600D16852 /* TenkiStampTests.m */; };
 		6E9A1C5519BDA4EA00BE1B91 /* cloudy_0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A1B2619BDA4EA00BE1B91 /* cloudy_0.gif */; };
@@ -434,6 +434,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29D55F4119BEDD7000C1FD0A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6E343D9019B86B1900D101AF /* DataCityName.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DataCityName.plist; path = TenkiStamp/DataCityName.plist; sourceTree = "<group>"; };
 		6E3C65A819B8C0FF0020C177 /* setting_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_bg.png; sourceTree = "<group>"; };
 		6E3C65AA19B8C1750020C177 /* setting_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_1.png; sourceTree = "<group>"; };
@@ -450,7 +451,6 @@
 		6E85119319B31A1600D16852 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6E85119519B31A1600D16852 /* WeatherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		6E85119619B31A1600D16852 /* WeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
-		6E85119919B31A1600D16852 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E85119B19B31A1600D16852 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6E8511A119B31A1600D16852 /* TenkiStampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TenkiStampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8511A619B31A1600D16852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1344,9 +1344,9 @@
 		6EB96AF919B77FD000542C64 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				29D55F4119BEDD7000C1FD0A /* Storyboard.storyboard */,
 				6E9A1B2419BDA4EA00BE1B91 /* stamp300 */,
 				6ED168E719BAAF2C00982707 /* weather_icon */,
-				6E85119819B31A1600D16852 /* Main.storyboard */,
 				6EBF222719BA0448001B0C86 /* weather.xml */,
 				6E343D9019B86B1900D101AF /* DataCityName.plist */,
 				6EF68EF619BEAAB300D9A4C0 /* tenkistamp.sqlite */,
@@ -1723,7 +1723,6 @@
 				6E9A1C7B19BDA4EB00BE1B91 /* cloudy_43.gif in Resources */,
 				6E9A1D4B19BDA4EB00BE1B91 /* sunny_50.png in Resources */,
 				6E9A1D4319BDA4EB00BE1B91 /* sunny_43.gif in Resources */,
-				6E85119A19B31A1600D16852 /* Main.storyboard in Resources */,
 				6E9A1D7319BDA4EB00BE1B91 /* sunny_87.png in Resources */,
 				6E9A1CF619BDA4EB00BE1B91 /* rainy_64.png in Resources */,
 				6E9A1C5D19BDA4EA00BE1B91 /* cloudy_16.gif in Resources */,
@@ -1989,6 +1988,7 @@
 				6EC8875A19B71B040005AB66 /* tab2.png in Resources */,
 				6E9A1C6419BDA4EA00BE1B91 /* cloudy_22.png in Resources */,
 				6E9A1CA419BDA4EB00BE1B91 /* cloudy_80.png in Resources */,
+				29D55F4219BEDD7000C1FD0A /* Storyboard.storyboard in Resources */,
 				6E9A1D5119BDA4EB00BE1B91 /* sunny_56.gif in Resources */,
 				6E9A1C6919BDA4EA00BE1B91 /* cloudy_27.png in Resources */,
 				6E9A1D7419BDA4EB00BE1B91 /* sunny_88.png in Resources */,
@@ -2085,18 +2085,6 @@
 			targetProxy = 6E8511A219B31A1600D16852 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		6E85119819B31A1600D16852 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6E85119919B31A1600D16852 /* Base */,
-			);
-			name = Main.storyboard;
-			path = TenkiStamp;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6E8511A919B31A1600D16852 /* Debug */ = {
