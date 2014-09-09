@@ -72,7 +72,7 @@ static StampDatabase* _database;
         NSLog(@"Failed to insert record  rc:%d, msg=%s",rc,errMsg);
     }
     
-    sqlite3_close(_database);
+    //sqlite3_close(_database);
     
     return rc;
 }

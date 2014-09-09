@@ -17,7 +17,7 @@
     NSString* value;
     WeatherItem* weatherItem;
     NSInteger indexUpdate;
-    NSInteger stampTypeSunny, stampTypeRainy, stampTypeCloudy;
+    NSInteger stampTypeUpper, stampTypeLower;
     NSMutableString* imageNamedStamp;
     NSMutableArray* stampCollection;
 }
@@ -89,8 +89,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    AppDelegate* delegate = [[UIApplication sharedApplication]delegate];
     
-    //stampCollection = delegate.stampCollection;
+    stampCollection = delegate.stampCollection;
+    
+    NSLog(@"Stamp Collection Count = %lu", (unsigned long)stampCollection.count);
+
     
     //delegate.stampDatabase insert:<#(StampInfo *)#>
     
@@ -153,7 +157,7 @@
     
     [todayView.upperStampView setImage:image];
     
-    //[self insertDataToDatabase];
+    [self insertDataToDatabase];
 }
 
 - (void)updateLower {
@@ -182,7 +186,7 @@
     }
     
     [todayView.lowerStampView setImage:image];
-    //[self insertDataToDatabase];
+    [self insertDataToDatabase];
 }
 
 - (void)insertDataToDatabase {
@@ -314,14 +318,12 @@
     ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
         if ([sender tag] == 0 && ![selectedValue isEqualToString:currentCityName]){
             NSLog(@"Update Upper");
-            indexUpdate = 0;
             [todayView.upperCityName setText:selectedValue];
             [weekView.upperCityNameLabel setText:selectedValue];
             [self parseValueWithCode:[[[cities allKeysForObject:selectedValue] objectAtIndex:0] integerValue]];
             [self updateUpper];
         } else if ([sender tag] == 1 && ![selectedValue isEqualToString:currentCityName]) {
             NSLog(@"Update Lower");
-            indexUpdate = 1;
             [todayView.lowerCityName setText:selectedValue];
             [weekView.lowerCityNameLabel setText:selectedValue];
             [self parseValueWithCode:[[[cities allKeysForObject:selectedValue] objectAtIndex:0] integerValue]];
@@ -392,9 +394,11 @@
 - (NSMutableString*)randomStampViewFromCode:(NSInteger)code  {
     NSMutableString* imageNamed = [[NSMutableString alloc]init];
     
+    //indexUpdate = code;
     
     if (code < 200) {
         [imageNamed appendString:@"sunny_"];
+        
     } else if (code >= 200 || code < 300) {
         [imageNamed appendString:@"cloudy_"];
     } else if (code >= 300) {
